@@ -93,9 +93,7 @@ dtb-$(CONFIG_ARCH_QCS405) += qcs405-iot-sku1.dtb \
 		qcs405-iot-sku13.dtb \
 		qcs407-iot-sku13.dtb \
 		qcs405-iot-robot-reference-board.dtb \
-		qcs404-iot-robot-reference-board.dtb \
-		qcs405-iot-robot-reference-dvt-board.dtb \
-		qcs404-iot-robot-reference-dvt-board.dtb
+		qcs404-iot-robot-reference-board.dtb
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	dtbo-$(CONFIG_ARCH_SM8150) += \
@@ -118,9 +116,8 @@ ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 		sm8150-sdxprairie-mtp-overlay.dtbo \
 		sm8150-sdxprairie-v2-cdp-overlay.dtbo \
 		sm8150-sdxprairie-v2-mtp-overlay.dtbo \
-		sm8150-sdxprairie-v3-mtp-overlay.dtbo \
-		sm8150-marmot-cdp-overlay.dtbo \
-		sm8150-marmot-mtp-overlay.dtbo \
+		sm8150-sdxchitwan-cdp-overlay.dtbo \
+		sm8150-sdxchitwan-mtp-overlay.dtbo \
 		sm8150-hdk-overlay.dtbo
 
 sm8150-cdp-overlay.dtbo-base := sm8150.dtb sm8150-v2.dtb sm8150p.dtb sm8150p-v2.dtb
@@ -143,9 +140,8 @@ sm8150-sdxprairie-cdp-overlay.dtbo-base := sm8150.dtb sm8150-v2.dtb sm8150p.dtb 
 sm8150-sdxprairie-mtp-overlay.dtbo-base := sm8150.dtb sm8150-v2.dtb sm8150p.dtb sm8150p-v2.dtb
 sm8150-sdxprairie-v2-cdp-overlay.dtbo-base := sm8150.dtb sm8150-v2.dtb sm8150p.dtb sm8150p-v2.dtb
 sm8150-sdxprairie-v2-mtp-overlay.dtbo-base := sm8150.dtb sm8150-v2.dtb sm8150p.dtb sm8150p-v2.dtb
-sm8150-sdxprairie-v3-mtp-overlay.dtbo-base := sm8150.dtb sm8150-v2.dtb sm8150p.dtb sm8150p-v2.dtb
-sm8150-marmot-cdp-overlay.dtbo-base := sm8150.dtb sm8150-v2.dtb sm8150p.dtb sm8150p-v2.dtb
-sm8150-marmot-mtp-overlay.dtbo-base := sm8150.dtb sm8150-v2.dtb sm8150p.dtb sm8150p-v2.dtb
+sm8150-sdxchitwan-cdp-overlay.dtbo-base := sm8150.dtb sm8150-v2.dtb sm8150p.dtb sm8150p-v2.dtb
+sm8150-sdxchitwan-mtp-overlay.dtbo-base := sm8150.dtb sm8150-v2.dtb sm8150p.dtb sm8150p-v2.dtb
 else
 dtb-$(CONFIG_ARCH_SM8150)	+= sm8150-rumi.dtb \
 	sm8150-mtp.dtb \
@@ -178,9 +174,8 @@ dtb-$(CONFIG_QTI_GVM) += sa8155-vm-la.dtb \
 	sa8155-vm-lv.dtb \
 	sa8155-vm-lv-mt.dtb \
 	sa8155-vm-la-mt.dtb \
-	sa6155p-vm-la.dtb \
-	sa8195-vm-la.dtb \
-	sa8195-vm-la-mt.dtb \
+	sa6155p-vm.dtb \
+	sa8195-vm.dtb \
 	sa8195-vm-lv.dtb \
 	sa8195-vm-lv-mt.dtb
 
@@ -389,14 +384,11 @@ dtb-$(CONFIG_ARCH_SDXPRAIRIE) += sdxprairie-rumi.dtb \
 	sdxprairie-v2-mtp-v1.1-cpe.dtb \
 	sdxprairie-v2-mtp-v1.1.dtb \
 	sdxprairie-v2-mtp-le-cpe.dtb \
-	sdxprairie-v2-ttp-cpe.dtb \
         sa515m-v2-ttp.dtb \
-	sa515m-v2-ttp-cpe.dtb \
         sa515m-v2-ttp-usb-ep.dtb \
         sa515m-v2-ttp-pcie-ep.dtb \
         sa515m-v2-ttp-flashless-usb-ep.dtb \
         sa515m-v2-ttp-flashless-pcie-ep.dtb \
-        sa515m-v2-ttp-emmc.dtb \
 	sa515m-ccard.dtb \
 	sa515m-ccard-pcie-ep.dtb \
 	sa515m-ccard-usb-ep.dtb \
@@ -443,55 +435,8 @@ sda660-cdp-external-codec-overlay.dtbo-base := sda660-pm660l.dtb
 
 sda660-rcm-external-codec-overlay.dtbo-base := sda660-pm660l.dtb
 else
-dtb-$(CONFIG_ARCH_SDM660) += sdm660-sim.dtb \
-	sdm660-internal-codec-cdp.dtb \
-	sdm660-internal-codec-mtp.dtb \
-	sdm660-internal-codec-rcm.dtb \
-	sdm660-cdp.dtb \
-	sdm660-mtp.dtb \
-	sdm660-qrd.dtb \
-	sdm660-rcm.dtb \
-	sdm660-pm660a-cdp.dtb \
-	sdm660-pm660a-mtp.dtb \
-	sdm660-pm660a-qrd.dtb \
-	sdm660-pm660a-rcm.dtb \
-	sdm660-internal-codec-pm660a-cdp.dtb \
-	sdm660-internal-codec-pm660a-mtp.dtb \
-	sdm660-internal-codec-pm660a-rcm.dtb \
-	sdm660-pm660a-sim.dtb \
-	sda660-cdp.dtb \
-	sda660-mtp.dtb \
-	sda660-rcm.dtb \
-	sda660-pm660a-cdp.dtb \
-	sda660-pm660a-mtp.dtb \
-	sda660-pm660a-rcm.dtb \
-	sda660-pm660a-qrd-hdk.dtb \
-	sdm660-headset-jacktype-no-cdp.dtb \
-	sdm660-headset-jacktype-no-rcm.dtb \
-	sdm660-pm660a-headset-jacktype-no-cdp.dtb \
-	sdm660-pm660a-headset-jacktype-no-rcm.dtb \
-	sdm660-usbc-audio-mtp.dtb \
-	sdm660-usbc-audio-rcm.dtb
+dtb-$(CONFIG_ARCH_SDM660) += platina-sdm660.dtb
 endif
-
-ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
-        dtbo-$(CONFIG_ARCH_SDM429W) += sdm429-wtp-overlay.dtbo\
-		sdm429-wdp-overlay.dtbo\
-		sda429-wdp-overlay.dtbo\
-		sda429-wtp-overlay.dtbo
-
-sdm429-wtp-overlay.dtbo-base := sdm429.dtb
-sdm429-wdp-overlay.dtbo-base := sdm429.dtb
-sda429-wtp-overlay.dtbo-base := sda429.dtb
-sda429-wdp-overlay.dtbo-base := sda429.dtb
-else
-dtb-$(CONFIG_ARCH_SDM429W) += sdm429-wtp.dtb\
-	sdm429-wdp.dtb\
-	sda429-wtp.dtb\
-	sda429-wdp.dtb
-endif
-
-
 endif
 
 ifeq ($(CONFIG_ARM64),y)
